@@ -1,22 +1,30 @@
 #include <iostream>
 #include <string>
+#include "FBullCowGame.h"
 
-using namespace std;
+
+
+
 
 void PrintIntro();
 void PlayGame();
-string GetGuess();
+std::string GetGuess();
 bool AskToPlayAgain();
+FBullCowGame BCGame; // game instance
+
 // Entry point of for our aplication
 int main()
 {
+	bool bPlayAgain = false;
 	do
 	{
+		int MaxTries = BCGame.GetMaxTries();
+
 		PrintIntro();
 		// Setting the  number of loops
 		PlayGame();
-		AskToPlayAgain();
-	} while (AskToPlayAgain);
+		bPlayAgain=AskToPlayAgain();
+	} while (bPlayAgain);
 	return 0; // Exit Game 
 }
 
@@ -26,37 +34,40 @@ void PrintIntro()
 {
 	// Introduce the Game
 	constexpr int WORD_LENGTH = 5;
-	cout << "Welcome to Bulls and Cows, a fun word game.\n";
-	cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking off?\n";
-	cout << endl;
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking off?\n";
+	std::cout << std::endl;
 	return ;
 }
 
 void PlayGame()
 {
-	constexpr int NUMBER_OF_LOOPS = 5;
-	for (int count = 1; count <= NUMBER_OF_LOOPS; count++)
+	BCGame.Reset();
+
+	 int MaxTries = BCGame.GetMaxTries();
+	for (int count = 1; count <= MaxTries; count++)
 	{
-		string Guess = GetGuess();
-		cout << "your guess was:" << Guess<<endl;
-		cout << endl;
+		std::string Guess = GetGuess();
+		std::cout << "your guess was:" << Guess<<std::endl;
+		std::cout << std::endl;
 	}
 }
 
-string GetGuess() 
+std::string GetGuess() 
 {
 	// get a guess from the player 
-	string Guess = "";
-	cout << "Enter your Guess: ";
-	getline(cin, Guess);
+	int CurrentTry = BCGame.GetMyCurrentTry();
+	std::string Guess = "";
+	std::cout << "Try " << CurrentTry <<  ". Enter your Guess: ";
+	std::getline(std::cin, Guess);
 	return Guess;
 }
 
 bool AskToPlayAgain()
 {
-	cout << "Do you want to play again?";
-	string response = "";
-	getline(cin, response);
+	std::cout << "Do you want to play again? (y/n)";
+	std::string response = "";
+	std::getline(std::cin, response);
 	bool PlayAgain = (response[0] == 'y') || (response[0] == 'Y');
 	return PlayAgain;
 }
