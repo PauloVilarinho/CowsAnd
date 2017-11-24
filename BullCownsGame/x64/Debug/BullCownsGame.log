@@ -1,2 +1,3 @@
-﻿  main.cpp
-  BullCownsGame.vcxproj -> C:\Users\paulo\Desktop\CownsBullsGame\master\x64\Debug\BullCownsGame.exe
+﻿  FBullCowGame.cpp
+c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(47): warning C4267: 'inicializando': conversão de 'size_t' para 'int32', possível perda de dados
+c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(54): error C2065: 'Guess': identificador não declarado
