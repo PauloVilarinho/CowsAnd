@@ -1,3 +1,3 @@
-﻿  FBullCowGame.cpp
-c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(47): warning C4267: 'inicializando': conversão de 'size_t' para 'int32', possível perda de dados
-c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(54): error C2065: 'Guess': identificador não declarado
+﻿  main.cpp
+c:\users\slowpokke\desktop\programacao\projetos curso c++\section_02\bullcownsgame\main.cpp(101): warning C4715: 'GetValidGuess': not all control paths return a value
+  BullCownsGame.vcxproj -> C:\Users\Slowpokke\Desktop\programacao\projetos Curso C++\Section_02\x64\Debug\BullCownsGame.exe
