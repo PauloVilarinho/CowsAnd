@@ -20,7 +20,7 @@ void PlayGame();
 FText GetValidGuess();
 bool AskToPlayAgain();
 FBullCowGame BCGame; // game instance
-FText PrintGameSummary();
+void PrintGameSummary();
 // Entry point32 of for our aplication
 int main()
 {
@@ -111,7 +111,16 @@ bool AskToPlayAgain()
 	return PlayAgain;
 }
 
-FText PrintGameSummary()
+void PrintGameSummary()
 {
-	return FText();
+	if (BCGame.IsGameWon())
+	{
+
+		std::cout << "You win, Congratulations!\n";
+	}
+	else
+	{
+		std::cout << "You lose, Better Luck next time!\n";
+	}
+	return;
 }

@@ -1,1 +1,7 @@
-﻿  BullCownsGame.vcxproj -> C:\Users\paulo\Desktop\BullCowGame\x64\Debug\BullCownsGame.exe
+﻿  FBullCowGame.cpp
+c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(9): warning C4267: 'return': conversão de 'size_t' para 'int32', possível perda de dados
+c:\users\paulo\desktop\cownsbullsgame\master\bullcownsgame\fbullcowgame.cpp(55): warning C4267: 'inicializando': conversão de 'size_t' para 'int32', possível perda de dados
+  Gerando Código...
+  Ignorando... (nenhuma alteração relevante detectada)
+  main.cpp
+  BullCownsGame.vcxproj -> C:\Users\paulo\Desktop\CownsBullsGame\master\x64\Debug\BullCownsGame.exe

@@ -30,7 +30,7 @@ public:
 	int32 GetMyHiddenWordLenth() const; 
 	bool IsGameWon() const;
 	EGuessStatus CheckGuessValidity (FString) const;
-
+	
 	void Reset(); //TODO make a more rich return value.
 	//TODO make a more rich return value.
 
@@ -43,4 +43,7 @@ private:
 	int32 MyCurrentTry ;
 	FString MyHiddenWord ;
 	bool bGameWon;
+	
+	bool IsLowerCase(FString) const;
+	bool IsIsogram(FString) const; 
 };
