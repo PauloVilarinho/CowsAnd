@@ -20,7 +20,7 @@ void PlayGame();
 FText GetValidGuess();
 bool AskToPlayAgain();
 FBullCowGame BCGame; // game instance
-
+FText PrintGameSummary();
 // Entry point32 of for our aplication
 int main()
 {
@@ -54,23 +54,25 @@ void PlayGame()
 	BCGame.Reset();
 
 	 int32 MaxTries = BCGame.GetMaxTries();
-	 //loop for number of turns asking for guess
-	 //TODO change from FOR to WHILE when we are validating tries
-	for (int32 count = 1; count <= MaxTries; count++)
+	 //loop asking for guess while the game is not won
+	 //and there are still tries remaining
+	 
+	while(!BCGame.IsGameWon() && BCGame.GetMyCurrentTry() <= MaxTries)
 	{
 		FText Guess = GetValidGuess(); 
 		//submit valid guess to the game, and receive counts
-		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess); 
+		FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess); 
 		
 		std::cout << "Bulls = " << BullCowCount.Bulls;
 		std::cout << ". Cows = " << BullCowCount.Cows << "\n\n" ;
 	}
-
+	PrintGameSummary();
 	// TODO summarise game 
 }
 // loop continuosly until get a valid guess
 FText GetValidGuess() 
 {
+	FText Guess = "";
 	EGuessStatus Status = EGuessStatus::Invalid_Status;
 	do
 	{
@@ -78,7 +80,6 @@ FText GetValidGuess()
 
 		// get a guess from the player 
 		int32 CurrentTry = BCGame.GetMyCurrentTry();
-		FText Guess = "";
 		std::cout << "Try " << CurrentTry << ". Enter your Guess: ";
 		std::getline(std::cin, Guess);
 		Status = BCGame.CheckGuessValidity(Guess);
@@ -93,12 +94,12 @@ FText GetValidGuess()
 		case EGuessStatus::Not_Lowercase:
 			std::cout << "Please enter an all lower case word.\n";
 			break;
-		default:
-			return Guess;
+		default: //assumes the guess is valid.
+			break;
 		}
 		std::cout << std::endl;
 	} while (Status != EGuessStatus::Ok);// keep looping until there is no error
-	
+	return Guess;
 }
 
 bool AskToPlayAgain()
@@ -108,4 +109,9 @@ bool AskToPlayAgain()
 	std::getline(std::cin, response);
 	bool PlayAgain = (response[0] == 'y') || (response[0] == 'Y');
 	return PlayAgain;
+}
+
+FText PrintGameSummary()
+{
+	return FText();
 }

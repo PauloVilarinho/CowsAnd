@@ -36,11 +36,11 @@ public:
 
 	// counts bulls and cows and increment turns # assuming valid guess
 	
-	FBullCowCount SubmitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 private:
 	// see constructor for initialisation
 	int32 MyMaxTries ;
 	int32 MyCurrentTry ;
 	FString MyHiddenWord ;
-	
+	bool bGameWon;
 };

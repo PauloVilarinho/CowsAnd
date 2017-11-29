@@ -1,3 +1,1 @@
-﻿  main.cpp
-c:\users\slowpokke\desktop\programacao\projetos curso c++\section_02\bullcownsgame\main.cpp(101): warning C4715: 'GetValidGuess': not all control paths return a value
-  BullCownsGame.vcxproj -> C:\Users\Slowpokke\Desktop\programacao\projetos Curso C++\Section_02\x64\Debug\BullCownsGame.exe
+﻿  BullCownsGame.vcxproj -> C:\Users\paulo\Desktop\BullCowGame\x64\Debug\BullCownsGame.exe
